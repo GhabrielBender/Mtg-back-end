@@ -16,8 +16,28 @@ export class CreateUsers1633028906430 implements MigrationInterface {
             type: "varcher",
           },
           {
+            name: "idade",
+            type: "varcher",
+          },
+          {
             name: "email",
             type: "varchar",
+          },
+          {
+            name: "senha",
+            type: "varchar",
+          },
+          {
+            name: "Telefone",
+            type: "varchar",
+          },
+          {
+            name: "Interesses",
+            type: "varchar",
+          },
+          {
+            name: "foto",
+            type: "varcher",
           },
           {
             name: "admin",
