@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateUsers1633028906430 implements MigrationInterface {
+export class CreateUsers1633386017999 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -9,50 +9,42 @@ export class CreateUsers1633028906430 implements MigrationInterface {
           {
             name: "id",
             type: "uuid",
-            isPrimary: true,
           },
           {
             name: "name",
-            type: "varcher",
+            type: "varchar",
           },
           {
-            name: "idade",
-            type: "varcher",
+            name: "age",
+            type: "varchar",
           },
           {
             name: "email",
             type: "varchar",
           },
           {
-            name: "senha",
+            name: "password",
             type: "varchar",
           },
           {
-            name: "Telefone",
+            name: "cellphone",
             type: "varchar",
           },
           {
-            name: "Interesses",
+            name: "interests",
             type: "varchar",
           },
           {
-            name: "foto",
-            type: "varcher",
-          },
-          {
-            name: "admin",
-            type: "boolean",
-            default: false,
+            name: "favorite_cards",
+            type: "varchar",
           },
           {
             name: "created_at",
-            type: "timestpamp",
-            default: "now()",
+            type: "timestamp",
           },
           {
             name: "updated_at",
-            type: "timestpamp",
-            default: "now()",
+            type: "timestamp",
           },
         ],
       })
@@ -60,6 +52,6 @@ export class CreateUsers1633028906430 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("user");
+    await queryRunner.dropTable("users");
   }
 }
