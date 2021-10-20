@@ -4,40 +4,39 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  JoinColumn,
+  ManyToOne,
 } from "typeorm";
 
 import { v4 as uuid } from "uuid";
-@Entity("users")
-export class User {
+import { User } from "./User";
+
+@Entity("cards")
+export class Card {
   @PrimaryColumn()
   readonly id: string;
+
+  @Column()
+  user_cards: string;
+
+  @JoinColumn({ name: "user_cards" })
+  @ManyToOne(() => User)
+  user: User;
 
   @Column()
   name: string;
 
   @Column()
-  age: string;
+  set: string;
 
   @Column()
-  city: string;
+  condition: string;
 
   @Column()
-  estate: string;
+  price: string;
 
   @Column()
-  cellphone: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Column()
-  interests: string;
-
-  @Column()
-  favorite_cards: string;
+  complement: string;
 
   @CreateDateColumn()
   created_at: Date;
