@@ -8,10 +8,6 @@ export class ListUsersCards {
 
     const husers = getCustomRepository(UsersRepositories);
 
-<<<<<<< HEAD
-    // cardName = "asdasdasdas";
-=======
->>>>>>> d9086ff27bf77e76d2913f280abd987056c7fc9b
     const cards = cardss.find({
       where: {
         name: card_name,
@@ -44,18 +40,6 @@ export class ListUsersCards {
       const array2 = await wololo2();
     }
 
-<<<<<<< HEAD
-    // const array2 = await wololo2();
-
-    console.log(allUsers);
-    // const users = husers.find({
-    //   where: {
-    //     id: www,
-    //   },
-    // });
-
-=======
->>>>>>> d9086ff27bf77e76d2913f280abd987056c7fc9b
     return allUsers;
   }
 }
