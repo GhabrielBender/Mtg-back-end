@@ -9,7 +9,7 @@ export class ListUsersCards {
 
     const husers = getCustomRepository(UsersRepositories);
 
-    cardName = "asdasdasdas";
+    // cardName = "asdasdasdas";
     const cards = cardss.find({
       where: {
         name: cardName,
@@ -53,6 +53,6 @@ export class ListUsersCards {
     //   },
     // });
 
-    // return users;
+    return allUsers;
   }
 }
