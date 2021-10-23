@@ -9,11 +9,11 @@ declare module "express" {
 
 export class ListUserCardsController {
   async handle(request: Request, response: Response) {
-    const { user_cards } = request;
+    const card_name = request.query.card_name;
 
     const listUserCardsService = new ListUsersCards();
 
-    const users = await listUserCardsService.execute(user_cards);
+    const users = await listUserCardsService.execute(card_name);
 
     return response.json(users);
   }
