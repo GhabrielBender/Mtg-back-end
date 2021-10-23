@@ -27,23 +27,24 @@ export class ListUsersCards {
 
     const array = await wololo();
 
-    console.log(usersIds);
+    // console.log(usersIds);
 
-    const users = husers.find({
-      where: {
-        id: usersIds.map((id) => {
-          return id;
-        }),
-      },
-    });
-
-    const wololo2 = async () => {
-      const response2 = (await users).map((user) => {
-        allUsers.push(user);
+    for (let i = 0; i < usersIds.length; i++) {
+      const users = husers.find({
+        where: {
+          id: usersIds[i],
+        },
       });
-    };
 
-    const array2 = await wololo2();
+      const wololo2 = async () => {
+        const response2 = (await users).map((user) => {
+          allUsers.push(user);
+        });
+      };
+      const array2 = await wololo2();
+    }
+
+    // const array2 = await wololo2();
 
     console.log(allUsers);
     // const users = husers.find({
