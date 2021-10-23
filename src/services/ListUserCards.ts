@@ -1,18 +1,20 @@
 import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { CardsRepositories } from "../repositories/CardsRepositories";
-import { Card } from "../entities/Card";
 
 export class ListUsersCards {
-  async execute(cardName: string) {
+  async execute(card_name: any) {
     const cardss = getCustomRepository(CardsRepositories);
 
     const husers = getCustomRepository(UsersRepositories);
 
+<<<<<<< HEAD
     // cardName = "asdasdasdas";
+=======
+>>>>>>> d9086ff27bf77e76d2913f280abd987056c7fc9b
     const cards = cardss.find({
       where: {
-        name: cardName,
+        name: card_name,
       },
     });
 
@@ -26,8 +28,6 @@ export class ListUsersCards {
     };
 
     const array = await wololo();
-
-    // console.log(usersIds);
 
     for (let i = 0; i < usersIds.length; i++) {
       const users = husers.find({
@@ -44,6 +44,7 @@ export class ListUsersCards {
       const array2 = await wololo2();
     }
 
+<<<<<<< HEAD
     // const array2 = await wololo2();
 
     console.log(allUsers);
@@ -53,6 +54,8 @@ export class ListUsersCards {
     //   },
     // });
 
+=======
+>>>>>>> d9086ff27bf77e76d2913f280abd987056c7fc9b
     return allUsers;
   }
 }

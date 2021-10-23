@@ -8,7 +8,7 @@ declare module "express" {
 }
 export class ListUserCityController {
   async handle(request: Request, response: Response) {
-    const { user_city } = request;
+    const user_city = request.query.user_city;
 
     const listUserCityService = new ListUsersCity();
 
