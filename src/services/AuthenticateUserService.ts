@@ -28,17 +28,8 @@ export class AuthenticateUserService {
       throw new Error("Email/Password incorrect");
     }
 
-    const token = sign(
-      {
-        email: user.email,
-      },
-      "723rgiu23gfi7u23hwololodf238f23lf2",
-      {
-        subject: user.id,
-        expiresIn: "1d",
-      }
-    );
+    const userId = user.id;
 
-    return token;
+    return userId;
   }
 }
