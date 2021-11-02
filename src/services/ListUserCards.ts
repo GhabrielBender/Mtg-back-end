@@ -4,11 +4,11 @@ import { CardsRepositories } from "../repositories/CardsRepositories";
 
 export class ListUsersCards {
   async execute(card_name: any) {
-    const cardss = getCustomRepository(CardsRepositories);
+    const cardsRepo = getCustomRepository(CardsRepositories);
 
-    const husers = getCustomRepository(UsersRepositories);
+    const usersRepo = getCustomRepository(UsersRepositories);
 
-    const cards = cardss.find({
+    const cards = cardsRepo.find({
       where: {
         name: card_name,
       },
@@ -17,27 +17,27 @@ export class ListUsersCards {
     let usersIds = [];
     let allUsers = [];
 
-    const wololo = async () => {
+    const usersFunction = async () => {
       const response = (await cards).map((card) => {
         usersIds.push(card.user_cards);
       });
     };
 
-    const array = await wololo();
+    const users = await usersFunction();
 
     for (let i = 0; i < usersIds.length; i++) {
-      const users = husers.find({
+      const users = usersRepo.find({
         where: {
           id: usersIds[i],
         },
       });
 
-      const wololo2 = async () => {
+      const allUsersFunction = async () => {
         const response2 = (await users).map((user) => {
           allUsers.push(user);
         });
       };
-      const array2 = await wololo2();
+      const allUsersArray = await allUsersFunction();
     }
 
     return allUsers;

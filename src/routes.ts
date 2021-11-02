@@ -8,9 +8,11 @@ import { ListUserCardsController } from "./controllers/ListUserCardsController";
 import { ListUserCityController } from "./controllers/ListUserCityController";
 import { ListUserController } from "./controllers/ListUserController";
 import { ListCardController } from "./controllers/ListCardController";
+import { ListCardsFromUserController } from "./controllers/ListCardsFromUserController";
 
 const router = Router();
 
+const listCardsFromUserController = new ListCardsFromUserController();
 const listUserCardsController = new ListUserCardsController();
 const listUserController = new ListUserController();
 const listCardController = new ListCardController();
@@ -26,7 +28,9 @@ router.post("/cards", createCardController.handle);
 
 router.post("/login", authenticateUserController.handle);
 
-router.get("/users/cards", listUserCardsController.handle);
+router.get("/cards/users", listUserCardsController.handle);
+
+router.get("/user/cards", listCardsFromUserController.handle);
 
 router.get("/users/city", listUserCityController.handle);
 
