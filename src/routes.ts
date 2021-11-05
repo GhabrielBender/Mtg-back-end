@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+import { CreateFavoriteCardController } from "./controllers/CreateFavoriteCardController";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { CreateCardController } from "./controllers/CreateCardController";
 import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
@@ -19,12 +20,15 @@ const listCardController = new ListCardController();
 const listUserCityController = new ListUserCityController();
 const createUserController = new CreateUserController();
 const createCardController = new CreateCardController();
+const createFavoriteCardController = new CreateFavoriteCardController();
 
 const authenticateUserController = new AuthenticateUserController();
 
 router.post("/user", createUserController.handle);
 
 router.post("/cards", createCardController.handle);
+
+router.post("/favoriteCards", createFavoriteCardController.handle);
 
 router.post("/login", authenticateUserController.handle);
 
