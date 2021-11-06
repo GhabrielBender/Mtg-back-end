@@ -11,10 +11,13 @@ import { ListUserCityController } from "./controllers/ListUserCityController";
 import { ListUserController } from "./controllers/ListUserController";
 import { ListCardController } from "./controllers/ListCardController";
 import { ListCardsFromUserController } from "./controllers/ListCardsFromUserController";
+import { ListAllCardsController } from "./controllers/ListAllCardsController";
 
 import { ListFavoriteCardsFromUserController } from "./controllers/ListFavoriteCardsFromUserController";
 
 const router = Router();
+
+const listAllCardsController = new ListAllCardsController();
 
 const listFavoriteCardsFromUserController =
   new ListFavoriteCardsFromUserController();
@@ -52,5 +55,7 @@ router.get("/users/city", listUserCityController.handle);
 router.get("/user", listUserController.handle);
 
 router.get("/card", listCardController.handle);
+
+router.get("/allCards", listAllCardsController.handle);
 
 export { router };
