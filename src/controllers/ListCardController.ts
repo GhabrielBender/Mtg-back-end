@@ -10,8 +10,6 @@ export class ListCardController {
   async handle(request: Request, response: Response) {
     const card_id = request.query.card_id;
 
-    console.log(card_id);
-
     const listCardService = new ListCard();
 
     const cards = await listCardService.execute(card_id);

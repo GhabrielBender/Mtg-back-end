@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { deleteFavoriteCardController } from "./controllers/DeleteFavoriteCardController";
+import { DeleteFavoriteCardController } from "./controllers/DeleteFavoriteCardController";
 import { CreateFavoriteCardController } from "./controllers/CreateFavoriteCardController";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { CreateCardController } from "./controllers/CreateCardController";
@@ -12,8 +12,12 @@ import { ListUserController } from "./controllers/ListUserController";
 import { ListCardController } from "./controllers/ListCardController";
 import { ListCardsFromUserController } from "./controllers/ListCardsFromUserController";
 
+import { ListFavoriteCardsFromUserController } from "./controllers/ListFavoriteCardsFromUserController";
+
 const router = Router();
 
+const listFavoriteCardsFromUserController =
+  new ListFavoriteCardsFromUserController();
 const listCardsFromUserController = new ListCardsFromUserController();
 const listUserCardsController = new ListUserCardsController();
 const listUserController = new ListUserController();
@@ -22,6 +26,8 @@ const listUserCityController = new ListUserCityController();
 const createUserController = new CreateUserController();
 const createCardController = new CreateCardController();
 const createFavoriteCardController = new CreateFavoriteCardController();
+
+const deleteFavoriteCardController = new DeleteFavoriteCardController();
 
 const authenticateUserController = new AuthenticateUserController();
 
@@ -33,11 +39,13 @@ router.post("/favoriteCards", createFavoriteCardController.handle);
 
 router.post("/login", authenticateUserController.handle);
 
-router.delete("/favoriteCards", deleteFavoriteCardController);
+router.delete("/favoriteCards", deleteFavoriteCardController.handle);
 
 router.get("/cards/users", listUserCardsController.handle);
 
 router.get("/user/cards", listCardsFromUserController.handle);
+
+router.get("/user/favoriteCards", listFavoriteCardsFromUserController.handle);
 
 router.get("/users/city", listUserCityController.handle);
 
