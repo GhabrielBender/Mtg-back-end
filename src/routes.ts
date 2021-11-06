@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+import { deleteFavoriteCardController } from "./controllers/DeleteFavoriteCardController";
 import { CreateFavoriteCardController } from "./controllers/CreateFavoriteCardController";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { CreateCardController } from "./controllers/CreateCardController";
@@ -31,6 +32,8 @@ router.post("/cards", createCardController.handle);
 router.post("/favoriteCards", createFavoriteCardController.handle);
 
 router.post("/login", authenticateUserController.handle);
+
+router.delete("/favoriteCards", deleteFavoriteCardController);
 
 router.get("/cards/users", listUserCardsController.handle);
 
